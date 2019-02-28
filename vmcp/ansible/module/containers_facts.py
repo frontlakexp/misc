@@ -11,7 +11,7 @@ ANSIBLE_METADATA = {
 
 DOCUMENTATION = '''
 ---
-module: docker_facts
+module: containers_facts
 
 short_description: Collect docker containers version information
 
@@ -31,7 +31,7 @@ containers
 from ansible.module_utils.basic import AnsibleModule
 import docker
 
-def get_docker_facts():
+def get_containers_facts():
     facts = []
     client = docker.from_env()
     for c in client.containers.list():
@@ -47,7 +47,7 @@ def get_docker_facts():
 def run_module():
     result = dict(
         changed=False,
-        containers=get_docker_facts()
+        containers=get_containers_facts()
     )
 
     module = AnsibleModule(

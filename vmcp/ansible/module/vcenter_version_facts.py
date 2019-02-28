@@ -13,10 +13,9 @@ ANSIBLE_METADATA = {
 DOCUMENTATION = r'''
 ---
 module: vcenter_version_facts
-short_description: Provides version information about vCenter and hosts
+short_description: Collect vCenter and ESX hosts version information
 description:
-- This module can be used to gather version information about vCenter and hosts.
-version_added: 2.7
+- This module can be used to collect vCenter and ESX hosts version information.
 notes:
 - Tested on vCenter 6.7
 requirements:
@@ -26,7 +25,7 @@ extends_documentation_fragment: vmware.documentation
 '''
 
 EXAMPLES = r'''
-- name: Provide version information about vCenter
+- name: Collect vCenter and ESX hosts version information
   vcenter_version_facts:
     hostname: '{{ vcenter_hostname }}'
     username: '{{ vcenter_username }}'
@@ -34,11 +33,11 @@ EXAMPLES = r'''
 '''
 
 RETURN = r'''
-about_facts:
+components:
     description:
     - dict about vCenter version information
     returned: success
-    type: str
+    type: object
     sample:
         {
           "invocation": {

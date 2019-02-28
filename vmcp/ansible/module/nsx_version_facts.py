@@ -1,7 +1,5 @@
 #!/usr/bin/python
-
-# Copyright: (c) 2018, Terry Jones <terry.jones@example.org>
-# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+# -*- coding: utf-8 -*-
 
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
@@ -11,21 +9,45 @@ ANSIBLE_METADATA = {
 
 DOCUMENTATION = '''
 ---
-module: containers_facts
+module: nsx_version_facts
 
-short_description: Collect docker containers version information
-
-version_added: "2.4"
-
+short_description: Collect NSX version information
 description:
     - "Collect docker containers version information."
+version_added: "2.7"
+notes:
+- Tested on NSX 2.2.0.0.0.8680778
 '''
 
+EXAMPLES = r'''
+- name: Collect NSX version information
+  nsx_version_facts:
+    hostname: '{{ vcenter_hostname }}'
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+'''
 
 RETURN = '''
-containers
-    description: a list of containers version information
-    type: list
+components
+    description:
+    - dict about NSX version information
+    type: object
+        {
+          "invocation": {
+            "module_args": {
+              "username": "admin",
+              "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+              "validate_certs": "no",
+              "hostname": "192.168.100.3"
+            }
+          },
+          "changed": false,
+          "components": {
+            "nsx": {
+              "version": "2.2.0.0.0.8680778"
+            }
+          }
+        }
 '''
 
 from ansible.module_utils.basic import AnsibleModule

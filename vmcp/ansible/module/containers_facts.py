@@ -1,7 +1,5 @@
 #!/usr/bin/python
-
-# Copyright: (c) 2018, Terry Jones <terry.jones@example.org>
-# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+# -*- coding: utf-8 -*-
 
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
@@ -12,11 +10,7 @@ ANSIBLE_METADATA = {
 DOCUMENTATION = '''
 ---
 module: containers_facts
-
 short_description: Collect docker containers version information
-
-version_added: "2.4"
-
 description:
     - "Collect docker containers version information."
 '''

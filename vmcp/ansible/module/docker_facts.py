@@ -74,7 +74,8 @@ def get_docker_facts():
             "name"  : c.name,
             "id"    : c.short_id,
             "image" : c.attrs['Config']['Image'],
-            "status"   : c.attrs['State']['Status']
+            "status"   : c.attrs['State']['Status'],
+            "created"   : c.attrs['Created']
         })
     return facts
 

@@ -1,9 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#
-# Copyright: (c) 2018, Abhijeet Kasurde <akasurde@redhat.com>
-#
-# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 from __future__ import absolute_import, division, print_function
 __metaclass__ = type
@@ -158,7 +154,7 @@ class VCenterVersionManager(PyVmomi):
         for host in container.view:
             hosts_facts.append({host.summary.config.name :
                 extract_facts(host.summary.config.product, HOSTS_FACTS)})
-        
+
         self.module.exit_json(
             changed=False,
             components=dict(
